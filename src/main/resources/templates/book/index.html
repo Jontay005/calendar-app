@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <title th:text="${title}">Booking App</title>
+
 </head>
 <body>
-    <h1 th:text="${title}"> </h1>
+<h1 th:text="${title}"> </h1>
+<h2 th:text="${header}"> </h2>
+<form method="post">
+
+    <select name="eventType">
+        <option>Wedding</option>
+        <option>Corporate Event</option>
+        <option>NightClub Event</option>
+    </select> <br/>
+
+    First Name : <input type="text" name="fname"/>
+    Last name :  <input type="text" name="lname" /> <br />
+    Email : <input name="email" type="email" /> <br/>
+
+    <textarea name="description" rows="10"/> <br/>
+    <input type="submit" value="Submit Request"/>
+</form>
 </body>
 </html>
