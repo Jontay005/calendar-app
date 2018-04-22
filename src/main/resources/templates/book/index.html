@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title th:text="${title}">Booking App</title>
+<head th:replace="fragments :: head"></head>
 
-</head>
-<body>
-<h1 th:text="${title}"> </h1>
-<h2 th:text="${header}"> </h2>
-<form method="post">
 
-    <select name="eventType">
-        <option>Wedding</option>
-        <option>Corporate Event</option>
-        <option>NightClub Event</option>
-    </select> <br/>
+<body class="container">
 
-    First Name : <input type="text" name="fname"/>
-    Last name :  <input type="text" name="lname" /> <br />
-    Email : <input name="email" type="email" /> <br/>
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
 
-    <textarea name="description" rows="10"/> <br/>
-    <input type="submit" value="Submit Request"/>
+<form method="post" style="max-width: 700px">
+    <div class="dropdown">
+        <select name="eventType">
+            <option>Wedding</option>
+            <option>Corporate Event</option>
+            <option>NightClub Event</option>
+        </select> <br/>
+    </div>
+
+    <div>
+        First Name : <input class="form-control" type="text" name="fname"/>
+        Last name :  <input class="form-control" type="text" name="lname" /> <br />
+        Email : <input class="form-control" name="email" type="email" /> <br/>
+        More Info: <textarea class="form-control" rows="5" name="description" /> <br/>
+        <input class="form-control" type="submit" value="Submit Request"/>
+    </div>
 </form>
 </body>
 </html>

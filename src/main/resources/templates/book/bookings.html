@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title th:text="${title}"> </title>
 
-</head>
-<body>
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
 <p th:unless="${info} and ${info.size()}" > no booking for now :( </p>
-<ul>
-    <li th:each="inf : ${info}" th:text="${inf}"></li>
+
+<ul th:each="inf : ${info}">
+    <li th:text="${inf.eventType}"></li>
+    <li th:text="${inf.fname}"></li>
+    <li th:text="${inf.lname}"></li>
+    <li th:text="${inf.email}"></li>
+    <li th:text="${inf.description}"></li>
 </ul>
 
 </body>
