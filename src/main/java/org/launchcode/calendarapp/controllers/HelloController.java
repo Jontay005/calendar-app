@@ -3,6 +3,7 @@ package org.launchcode.calendarapp.controllers;
 import org.launchcode.calendarapp.models.BookingData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,11 +34,8 @@ public class HelloController {
     }
 
     @RequestMapping(value= "", method=RequestMethod.POST)
-    public String processBooking(@RequestParam String eventType, String description,
-                                 String fname, String lname, String email){
-        Booking newBooking = new Booking(eventType, fname, lname, email, description);
+    public String processBooking(@ModelAttribute Booking newBooking){
         BookingData.add(newBooking);
-        //bookings.add(newBooking);
         return "redirect:bookings";
     }
 
