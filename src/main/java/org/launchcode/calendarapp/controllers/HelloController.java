@@ -44,8 +44,8 @@ public class HelloController {
     @RequestMapping(value="remove", method=RequestMethod.GET)
     public String displayRemoveBooking(Model model){
         model.addAttribute("title", "Remove Booking");
-        model.addAttribute("info", BookingData.getAll());
-        return "book/bookings";
+        model.addAttribute("bookings", BookingData.getAll());
+        return "book/remove";
     }
 
     @RequestMapping(value="remove", method=RequestMethod.POST)
@@ -54,7 +54,6 @@ public class HelloController {
             BookingData.remove(bookingId);
         }
         return "redirect:";
-
     }
 
 }
