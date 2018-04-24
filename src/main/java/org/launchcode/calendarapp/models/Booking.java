@@ -17,19 +17,19 @@ public class Booking {
     private String eventType;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    //@Size(min = 3, max = 10)
     private String fname;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    //@Size(min = 3, max = 10)
     private String lname;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    //@Size(min = 3, max = 10)
     private String email;
 
     @NotNull
-    @Size(min = 0, message  = "Description cannot be empty")
+    //@Size(min = 0, message  = "Description cannot be empty")
     private String description;
 
     public Booking(String eventType, String fname, String lname, String email, String description) {
@@ -86,6 +86,5 @@ public class Booking {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
 }

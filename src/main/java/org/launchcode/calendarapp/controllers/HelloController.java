@@ -39,7 +39,6 @@ public class HelloController {
     @RequestMapping(value= "", method=RequestMethod.POST)
     public String processBooking(@ModelAttribute Booking newBooking){
         bookingDao.save(newBooking);
-        //BookingData.add(newBooking);
         return "redirect:bookings";
     }
 
@@ -54,7 +53,6 @@ public class HelloController {
     public String processRemoveBooking(@RequestParam int [] bookingIds ){
         for (int bookingId : bookingIds){
             bookingDao.delete(bookingId);
-            //BookingData.remove(bookingId);
         }
         return "redirect:";
     }
