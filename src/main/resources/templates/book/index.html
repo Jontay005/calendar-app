@@ -6,7 +6,7 @@
 <body class="container">
 
 <h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigation"></nav> <br/>
 
 <form method="post" style="max-width: 700px">
     <div class="dropdown">
@@ -15,7 +15,7 @@
             <option>Corporate Event</option>
             <option>NightClub Event</option>
         </select> <br/>
-    </div>
+    </div> <br/>
 
     <div>
         First Name : <input class="form-control" type="text" name="fname"/>

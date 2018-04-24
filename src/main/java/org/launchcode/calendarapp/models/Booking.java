@@ -1,13 +1,38 @@
 package org.launchcode.calendarapp.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Booking {
+
+    @Id
+    @GeneratedValue
+    private int Id;
+
     private String eventType;
-    private String fname, lname, email, description;
-    private int infoId;
-    private static int nextId = 1;
+
+    @NotNull
+    @Size(min = 3, max = 10)
+    private String fname;
+
+    @NotNull
+    @Size(min = 3, max = 10)
+    private String lname;
+
+    @NotNull
+    @Size(min = 3, max = 10)
+    private String email;
+
+    @NotNull
+    @Size(min = 0, message  = "Description cannot be empty")
+    private String description;
 
     public Booking(String eventType, String fname, String lname, String email, String description) {
-        this();
         this.eventType = eventType;
         this.fname = fname;
         this.lname = lname;
@@ -16,8 +41,10 @@ public class Booking {
     }
 
     public Booking(){
-        infoId = nextId;
-        nextId++;
+    }
+
+    public int getId() {
+        return Id;
     }
 
     public String getEventType() {
@@ -60,11 +87,5 @@ public class Booking {
         this.description = description;
     }
 
-    public int getInfoId() {
-        return infoId;
-    }
 
-    public void setInfoId(int infoId) {
-        this.infoId = infoId;
-    }
 }
