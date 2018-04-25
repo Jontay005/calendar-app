@@ -32,7 +32,7 @@ public class HelloController {
     public String displayBookingForm(Model model){
         model.addAttribute("title", "Artist Booking App");
         model.addAttribute("title", "Pending Bookings");
-        model.addAttribute("info", bookingDao.findAll());
+        model.addAttribute("bookings", bookingDao.findAll());
         return "book/bookings";
     }
 

@@ -8,14 +8,13 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${info} and ${info.size()}" > no booking for now :( </p>
+<p th:unless="${bookings} and ${bookings.size()}" > no booking for now :( </p>
 
-<ul th:each="inf : ${info}">
-    <li th:text="${inf.eventType}"></li>
-    <li th:text="${inf.fname}"></li>
-    <li th:text="${inf.lname}"></li>
-    <li th:text="${inf.email}"></li>
-    <li th:text="${inf.description}"></li>
+<ul th:each="booking : ${bookings}">
+    <li th:text="${booking.eventType}"></li>
+    <li th:text="${booking.fname + ' ' +inf.lname}" ></li>
+    <li th:text="${booking.email}"></li>
+    <li th:text="${booking.description}"></li>
 </ul>
 
 </body>

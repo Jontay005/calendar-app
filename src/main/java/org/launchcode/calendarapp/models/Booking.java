@@ -1,11 +1,17 @@
 package org.launchcode.calendarapp.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import javax.validation.constraints.Size;
+
+import static javax.persistence.TemporalType.DATE;
 
 @Entity
 public class Booking {
@@ -32,12 +38,18 @@ public class Booking {
     //@Size(min = 0, message  = "Description cannot be empty")
     private String description;
 
-    public Booking(String eventType, String fname, String lname, String email, String description) {
+    @Temporal(DATE)
+    @DateTimeFormat(pattern="dd-MMM-YYYY")
+    private Date eventDate;
+
+    public Booking(String eventType, String fname, String lname,
+                   String email, String description, Date eventDate) {
         this.eventType = eventType;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.description = description;
+        this.eventDate = eventDate;
     }
 
     public Booking(){
@@ -87,4 +99,11 @@ public class Booking {
         this.description = description;
     }
 
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
 }
