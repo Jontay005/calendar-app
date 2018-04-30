@@ -8,12 +8,14 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav> <br/>
 
-<form method="post" style="max-width: 700px">
+<form method="post" style="max-width: 700px" th:object="${myDate}">
 
-    <div class="inpur-group date">
+    <div class="input-group date">
         Date: <input type="date" class="form-control" name="eventDate" /> <br/>
-    </div>
+        <!--Date: <input type="date" th:field="*{date}" class="form-control" name="eventDate" /> -->
+    </div> <br/>
     <div class="dropdown">
+        EventType :
         <select name="eventType">
             <option>Wedding</option>
             <option>Corporate Event</option>
@@ -26,8 +28,10 @@
         Last name :  <input class="form-control" type="text" name="lname" /> <br />
         Email : <input class="form-control" name="email" type="email" /> <br/>
         More Info: <textarea class="form-control" rows="5" name="description" /> <br/>
-        <input class="form-control" type="submit" value="Submit Request"/>
     </div>
+    <input class="form-control" type="submit" value="Submit Request"/>
 </form>
+<h3 th:if="${convertedDate}" th:text="${{convertedDate}}"></h3>
+
 </body>
 </html>

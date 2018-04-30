@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.launchcode.calendarapp.models.Booking;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping()
 public class HelloController {
@@ -37,7 +39,7 @@ public class HelloController {
     }
 
     @RequestMapping(value= "", method=RequestMethod.POST)
-    public String processBooking(@ModelAttribute Booking newBooking){
+    public String processBooking(@ModelAttribute Booking  newBooking){
         bookingDao.save(newBooking);
         return "redirect:bookings";
     }

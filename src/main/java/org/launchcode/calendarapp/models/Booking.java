@@ -22,23 +22,23 @@ public class Booking {
 
     private String eventType;
 
-    @NotNull
+    //@NotNull
     //@Size(min = 3, max = 10)
     private String fname;
 
-    @NotNull
+    //@NotNull
     //@Size(min = 3, max = 10)
     private String lname;
 
-    @NotNull
+    //@NotNull
     //@Size(min = 3, max = 10)
     private String email;
 
-    @NotNull
+    //@NotNull
     //@Size(min = 0, message  = "Description cannot be empty")
     private String description;
 
-    @Temporal(DATE)
+    //@Temporal(DATE)
     @DateTimeFormat(pattern="dd-MMM-YYYY")
     private Date eventDate;
 
