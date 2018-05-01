@@ -2,13 +2,15 @@ package org.launchcode.calendarapp.models;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.Date;
+
 import javax.validation.constraints.Size;
 
 import static javax.persistence.TemporalType.DATE;
@@ -22,19 +24,19 @@ public class Booking {
 
     private String eventType;
 
-    //@NotNull
+    @NotNull
     //@Size(min = 3, max = 10)
     private String fname;
 
-    //@NotNull
+    @NotNull
     //@Size(min = 3, max = 10)
     private String lname;
 
-    //@NotNull
+    @NotNull
     //@Size(min = 3, max = 10)
     private String email;
 
-    //@NotNull
+    @NotNull
     //@Size(min = 0, message  = "Description cannot be empty")
     private String description;
 
@@ -43,16 +45,18 @@ public class Booking {
     private Date eventDate;
 
     public Booking(String eventType, String fname, String lname,
-                   String email, String description, Date eventDate) {
+                   String email, String description, String eventDate) {
         this.eventType = eventType;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.description = description;
-        this.eventDate = eventDate;
+        this.eventDate = new Date(eventDate);
     }
 
+
     public Booking(){
+
     }
 
     public int getId() {
