@@ -2,10 +2,8 @@ package org.launchcode.calendarapp.models;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.text.DateFormat;
 import java.time.LocalDate;
@@ -41,17 +39,19 @@ public class Booking {
     private String description;
 
     //@Temporal(DATE)
-    @DateTimeFormat(pattern="dd-MMM-YYYY")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    //@Temporal(TemporalType.DATE)
     private Date eventDate;
 
     public Booking(String eventType, String fname, String lname,
-                   String email, String description, String eventDate) {
+                   String email, String description, Date eventDate) {
         this.eventType = eventType;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.description = description;
-        this.eventDate = new Date(eventDate);
+        this.eventDate = eventDate;
+        //this.eventDate = new Date(eventDate);
     }
 
 

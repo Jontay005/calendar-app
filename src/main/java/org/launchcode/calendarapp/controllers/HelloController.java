@@ -2,15 +2,15 @@ package org.launchcode.calendarapp.controllers;
 
 import org.launchcode.calendarapp.models.data.BookingDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import org.launchcode.calendarapp.models.Booking;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -38,9 +38,19 @@ public class HelloController {
         return "book/bookings";
     }
 
+/*    @InitBinder
+    public void initBinder(WebDataBinder binder){
+        binder.registerCustomEditor( Date.class,
+                new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true, 10));
+    }*/
+
     @RequestMapping(value= "", method=RequestMethod.POST)
-    public String processBooking(@ModelAttribute Booking  newBooking){
+    public String processBooking( Model model, @ModelAttribute Booking  newBooking){
+        System.out.println("TESTING DATE : " + newBooking.getEventDate());
         bookingDao.save(newBooking);
+        model.addAttribute("Booking", newBooking);
+        //bookingDao.save();
+
         return "redirect:bookings";
     }
 
