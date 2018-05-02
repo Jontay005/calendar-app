@@ -27,6 +27,7 @@ public class HelloController {
 
         model.addAttribute("title", "Artist Booking App"); //passes to the view
         model.addAttribute("header", "Request Booking");
+        model.addAttribute("booking", new Booking());
         return "book/index";
     }
 

@@ -5,13 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.text.DateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
-import javax.validation.constraints.Size;
-
-import static javax.persistence.TemporalType.DATE;
 
 @Entity
 public class Booking {

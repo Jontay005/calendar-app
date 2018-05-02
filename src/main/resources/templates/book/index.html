@@ -8,11 +8,10 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav> <br/>
 
-<form method="post" style="max-width: 700px" th:object="${myDate}"> <!-- -->
+<form method="post" style="max-width: 700px" th:object="${booking}"  >
 
     <div class="input-group date" >
-        Date: <input type="date" name="eventDate" th:field="*{date}" />
-      <!-- Date: <input type="date" th:field="*{date}" class="form-control" name="eventDate" />-->
+        Date: <input type="date" name="eventDate" th:field="*{eventDate}" />
     </div> <br/>
     <div class="dropdown">
         EventType :
@@ -24,14 +23,12 @@
     </div> <br/>
 
     <div>
-        First Name : <input class="form-control" type="text" name="fname"/>
-        Last name :  <input class="form-control" type="text" name="lname" /> <br />
-        Email : <input class="form-control" name="email" type="email" /> <br/>
-        More Info: <textarea class="form-control" rows="5" name="description" /> <br/>
+        First Name : <input class="form-control" type="text" name="fname" th:field="*{fname}" />
+        Last name :  <input class="form-control" type="text" name="lname" th:field="*{lname}" /> <br />
+        Email : <input class="form-control" name="email" type="email" th:field="*{email}" /> <br/>
+        More Info: <textarea class="form-control" rows="5" name="description" th:field="*{description}" /> <br/>
     </div>
     <input class="form-control" type="submit" value="Submit Request"/>
 </form>
-<!--<h3 th:if="${convertedDate}" th:text="${{convertedDate}}"></h3> -->
-
 </body>
 </html>
